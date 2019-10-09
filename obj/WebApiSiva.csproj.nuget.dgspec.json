@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj": {}
+  },
+  "projects": {
+    "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj",
+        "projectName": "WebApiSiva",
+        "projectPath": "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj",
+        "packagesPath": "/Users/geezylucas/.nuget/packages/",
+        "outputPath": "/Users/geezylucas/Documents/NetCore/WebApiSiva/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/geezylucas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "(, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
