@@ -6,9 +6,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using WebApiSiva.Data;
 using WebApiSiva.Models;
 using WebApiSiva.Dtos;
+using WebApiSiva.Entities;
 
 namespace WebApiSiva.Controllers
 {
@@ -18,10 +20,12 @@ namespace WebApiSiva.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private readonly GTDbContext _context;
+        public AuthController(IAuthRepository repo, IConfiguration config, GTDbContext context)
         {
             _repo = repo;
             _config = config;
+            _context = context;
         }
 
         [HttpPost("login")]
@@ -52,7 +56,7 @@ namespace WebApiSiva.Controllers
 
         [HttpPost("register")] //<host>/api/auth/register
         public async Task<IActionResult> Register([FromBody] UserForRegisterDto userForRegisterDto)
-        { //Data Transfer Object containing username and password.
+        {   // Data Transfer Object containing username and password.
             // validate request
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -60,7 +64,7 @@ namespace WebApiSiva.Controllers
             userForRegisterDto.Email = userForRegisterDto.Email.ToLower(); //Convert username to lower case before storing in database.
 
             if (await _repo.UserExists(userForRegisterDto.Email))
-                return BadRequest("Email is already taken");
+                return BadRequest("Email is already taken.");
 
             var userToCreate = new User
             {
@@ -70,6 +74,26 @@ namespace WebApiSiva.Controllers
             var createUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
             return StatusCode(201);
+        }
+
+        [HttpGet("clientexists")] //<host>/api/auth/clientexists/?numclient=190311100051 or "/clientexists/?email=xxx@xxx.com
+        public async Task<IActionResult> ClientExists(string numclient, string email)
+        {
+            object client = null;
+
+            if (numclient != null && email == null)
+                client = await _context.Clientes.FirstOrDefaultAsync(x => x.NumCliente == numclient);
+            else if (email != null && numclient == null)
+                client = await _context.Clientes.FirstOrDefaultAsync(x => x.EmailCliente == email);
+            else 
+                BadRequest("There can only be one parameter.");
+
+            if (client == null)
+                return BadRequest("Client not exists in database.");
+
+            
+
+            return Ok();
         }
     }
 }
