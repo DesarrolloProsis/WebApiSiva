@@ -11,6 +11,7 @@ using WebApiSiva.Data;
 using WebApiSiva.Models;
 using WebApiSiva.Dtos;
 using WebApiSiva.Entities;
+using System.Linq;
 
 namespace WebApiSiva.Controllers
 {
@@ -76,24 +77,27 @@ namespace WebApiSiva.Controllers
             return StatusCode(201);
         }
 
-        [HttpGet("clientexists")] //<host>/api/auth/clientexists/?numclient=190311100051 or "/clientexists/?email=xxx@xxx.com
+        [HttpGet("clientexists/{numclient}/{email}")] //<host>/api/auth/clientexists/?numclient=190311100051 or "/clientexists/?email=xxx@xxx.com
         public async Task<IActionResult> ClientExists(string numclient, string email)
         {
-            object client = null;
+          
+            object Cliente = null;
 
-            if (numclient != null && email == null)
-                client = await _context.Clientes.FirstOrDefaultAsync(x => x.NumCliente == numclient);
-            else if (email != null && numclient == null)
-                client = await _context.Clientes.FirstOrDefaultAsync(x => x.EmailCliente == email);
+            if (numclient != null && email != null)
+            {
+                Cliente = await _context.Clientes.FirstOrDefaultAsync(x => x.NumCliente == numclient);     
+                   
+                if(Cliente != null)
+                return Ok();
+                else
+                return BadRequest("El cliente no existe!");
+  
+
+            }
             else 
-                BadRequest("There can only be one parameter.");
-
-            if (client == null)
-                return BadRequest("Client not exists in database.");
-
-            
-
-            return Ok();
+            {
+                return BadRequest("Faltan Parametros!");
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using WebApiSiva.Models;
+using WebApiSiva.Entities;
 
 namespace WebApiSiva.Data
 {

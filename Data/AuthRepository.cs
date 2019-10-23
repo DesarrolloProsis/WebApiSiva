@@ -3,11 +3,14 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebApiSiva.Models;
 
+
+
 namespace WebApiSiva.Data
 {
     public class AuthRepository : IAuthRepository
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _context;        
+        
         public AuthRepository(AppDbContext context)
         {
             _context = context;

@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj": {}
+    "C:\\Users\\Desarrollo3\\Desktop\\Nueva carpeta\\WebApiSiva\\WebApiSiva.csproj": {}
   },
   "projects": {
-    "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj": {
+    "C:\\Users\\Desarrollo3\\Desktop\\Nueva carpeta\\WebApiSiva\\WebApiSiva.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj",
+        "projectUniqueName": "C:\\Users\\Desarrollo3\\Desktop\\Nueva carpeta\\WebApiSiva\\WebApiSiva.csproj",
         "projectName": "WebApiSiva",
-        "projectPath": "/Users/geezylucas/Documents/NetCore/WebApiSiva/WebApiSiva.csproj",
-        "packagesPath": "/Users/geezylucas/.nuget/packages/",
-        "outputPath": "/Users/geezylucas/Documents/NetCore/WebApiSiva/obj/",
+        "projectPath": "C:\\Users\\Desarrollo3\\Desktop\\Nueva carpeta\\WebApiSiva\\WebApiSiva.csproj",
+        "packagesPath": "C:\\Users\\Desarrollo3\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Desarrollo3\\Desktop\\Nueva carpeta\\WebApiSiva\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/geezylucas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Desarrollo3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,6 +55,10 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[5.4.0, )"
@@ -73,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100-preview1-014459\\RuntimeIdentifierGraph.json"
         }
       }
     }

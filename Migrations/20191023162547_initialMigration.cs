@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApiSiva.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,6 +12,7 @@ namespace WebApiSiva.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    NumeroCliente = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 30, nullable: false),
                     PasswordHash = table.Column<byte[]>(nullable: false),
                     PasswordSalt = table.Column<byte[]>(nullable: false)

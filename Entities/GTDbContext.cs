@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using WebApiSiva.Entities;
 
+
 namespace WebApiSiva.Entities
 {
     public partial class GTDbContext : DbContext

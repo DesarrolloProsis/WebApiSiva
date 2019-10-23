@@ -10,8 +10,8 @@ using WebApiSiva.Data;
 namespace WebApiSiva.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191010162242_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20191023162547_initialMigration")]
+    partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,9 @@ namespace WebApiSiva.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
+
+                    b.Property<string>("NumeroCliente")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
                         .IsRequired()
