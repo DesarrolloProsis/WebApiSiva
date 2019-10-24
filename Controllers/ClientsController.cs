@@ -28,5 +28,14 @@ namespace WebApiSiva.Controllers
             var values = await _context.Clientes.FirstOrDefaultAsync(x => x.NumCliente == NumClient);
             return Ok(values);
         }
+
+        
+        // GET api/clients/190311100051
+        [HttpGet("{NumClient}")]
+        public async Task<IActionResult> GetCuentasTag(string NumClient)
+        {
+            var values = await _context.Clientes.FirstOrDefaultAsync(x => x.NumCliente == NumClient);
+            return Ok(values);
+        }
     }
 }

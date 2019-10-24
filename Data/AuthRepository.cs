@@ -66,10 +66,10 @@ namespace WebApiSiva.Data
             }
         }
 
-        public async Task<bool> UserExists(string email)
+        public async Task<bool> UserExists(string email, string numeroCliente)
         {
-            if (await _context.Users.AnyAsync(x => x.Email == email))
-                return true;
+            if (await _context.Users.AnyAsync(x => x.Email == email && x.NumeroCliente == numeroCliente))
+                return true;            
             return false;
         }
     }

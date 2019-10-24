@@ -8,6 +8,6 @@ namespace WebApiSiva.Data
     {
          Task<User> Register(User user, string password); 
          Task<User> Login(string username, string pasword);
-         Task<bool> UserExists(string username);
+         Task<bool> UserExists(string username, string numeroCliente);
     }
 }

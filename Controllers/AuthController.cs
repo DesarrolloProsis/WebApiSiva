@@ -64,12 +64,13 @@ namespace WebApiSiva.Controllers
 
             userForRegisterDto.Email = userForRegisterDto.Email.ToLower(); //Convert username to lower case before storing in database.
 
-            if (await _repo.UserExists(userForRegisterDto.Email))
+            if (await _repo.UserExists(userForRegisterDto.Email, userForRegisterDto.NumeroCliente))
                 return BadRequest("Email is already taken.");
 
             var userToCreate = new User
             {
-                Email = userForRegisterDto.Email
+                Email = userForRegisterDto.Email,
+                NumeroCliente = userForRegisterDto.NumeroCliente
             };
 
             var createUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
@@ -82,22 +83,25 @@ namespace WebApiSiva.Controllers
         {
           
             object Cliente = null;
+            object Email = null;
 
             if (numclient != null && email != null)
             {
                 Cliente = await _context.Clientes.FirstOrDefaultAsync(x => x.NumCliente == numclient);     
                    
-                if(Cliente != null)
-                return Ok();
-                else
-                return BadRequest("El cliente no existe!");
-  
+                if(Cliente != null){
+                       Email = await _context.Clientes.FirstOrDefaultAsync(x => x.NumCliente == numclient && x.EmailCliente == email); 
 
+                       if(Email != null)
+                            return Ok(Cliente);
+                        else
+                          return BadRequest("El email no coincide!");
+                }                
+                else
+                  return BadRequest("El cliente no existe!");  
             }
-            else 
-            {
+            else             
                 return BadRequest("Faltan Parametros!");
-            }
         }
     }
 }
